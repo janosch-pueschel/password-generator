@@ -1,0 +1,140 @@
+/* defining color-variables */
+$background-color: #1f2937;
+$primary-color: #ffffff;
+$secondary-color: #d5d4d8;
+$highlight-color: #4adf86;
+$button-color: #10b981;
+$output-color: #273549;
+
+@mixin basic-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  @include basic-flexbox;
+  margin: auto;
+  height: 100vh;
+  background-color: $background-color;
+  font-family: "Karla";
+  font-size: 40px;
+
+  @media (min-width: 992px) and (orientation: landscape) {
+    height: 100vh;
+  }
+}
+
+.wrapper {
+  @include basic-flexbox;
+  flex-direction: column;
+  width: 100vh;
+
+  @media (min-width: 992px) {
+    width: 500px;
+  }
+}
+
+.content {
+  width: 80%;
+  height: 100%;
+  padding: 40px;
+  background-color: $background-color;
+  text-align: center;
+
+  @media (min-width: 992px) and (orientation: landscape) {
+    min-width: 350px;
+    height: auto;
+    padding: 40px;
+    border: $secondary-color 5px solid;
+    border-radius: 15px;
+    text-align: left;
+  }
+
+  &__input {
+    border-bottom: $secondary-color solid;
+    padding-bottom: 30px;
+  }
+
+  &__heading {
+    color: $primary-color;
+    margin-bottom: 60px;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      font-size: 32px;
+      margin-bottom: 0px;
+    }
+
+    &--highlight {
+      color: $highlight-color;
+    }
+  }
+
+  &__paragraph {
+    color: $secondary-color;
+    font-size: 40px;
+    margin-bottom: 100px;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      color: $secondary-color;
+      font-size: 16px;
+      margin-bottom: 0;
+      padding: 5px 0 35px 0;
+    }
+  }
+
+  &__button {
+    background-color: $button-color;
+    color: $primary-color;
+    font-size: 50px;
+    padding: 40px;
+    margin: 10px 0 50px 0;
+    border: none;
+    border-radius: 15px;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px 0 0 0;
+      border-radius: 5px;
+    }
+  }
+
+  &__output {
+    @include basic-flexbox;
+    flex-direction: column;
+    margin-top: 150px;
+    color: $highlight-color;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+      color: $highlight-color;
+    }
+  }
+
+  &__password-container {
+    @include basic-flexbox;
+    width: 80%;
+    height: 150px;
+    background-color: $output-color;
+    border-radius: 15px;
+    font-size: 60px;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      width: 170px;
+      height: 52px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  }
+
+  &__password-container.margin {
+    margin-bottom: 60px;
+
+    @media (min-width: 992px) and (orientation: landscape) {
+      margin-bottom: 0;
+    }
+  }
+}
